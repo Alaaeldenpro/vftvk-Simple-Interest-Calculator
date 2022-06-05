@@ -1,7 +1,12 @@
 
 function compute()
 {
-  
+  if  (!validateInput()) {
+alert("Enter a positive number.");
+document.getElementById("principal").focus();
+return;
+  }
+
  var principal = document.getElementById("principal").value;
  var rate = document.getElementById("rate").value;
  var years = document.getElementById("years").value;
@@ -11,6 +16,19 @@ function compute()
 }
 function updateRate() 
 {
+    debugger;
     var rateval = document.getElementById("rate").value;
-    document.getElementById("rate_val").innerText=rateval;
+    document.getElementById("rate_val").innerText=rateval + "%";
+}
+
+function validateInput()
+{
+ var principal = document.getElementById("principal").value;
+ if ( principal != "" &&  parseInt(principal) > 0)
+ {
+     return true;
+ }
+ else  {
+     return false;
+ }
 }
